@@ -18,13 +18,13 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Language/Version**: [TypeScript/Node.js; supported versions selected with official sources]
 
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+**Primary Dependencies**: [Fastify; Telegram library and validator selected during planning]
 
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+**Storage**: [MongoDB Atlas; isolated MongoDB for integration tests]
 
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+**Testing**: [TypeScript runner selected during planning; unit/contract/integration]
 
 **Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
 
@@ -40,7 +40,19 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Scope/stack: map to the PRD stage; MVP 1 uses TypeScript/Node.js, Fastify,
+  MongoDB Atlas, private Telegram polling and local Docker Compose.
+- Architecture: domain/application independent of SDKs; adapters implement ports.
+- Integrity: identify work/edition, confirm selections, preserve unknown/personal
+  data, handle idempotency and concurrent deduplication where applicable.
+- Security: private-chat authorization, validation, local-only health and protected
+  environment configuration; no real secrets or personal CSV in fixtures/CI.
+- Quality: risk-based automated tests, current official dependency documentation
+  with consultation dates, and relevant CI checks.
+- Documentation: list all affected documents and README updates in this delivery;
+  justify non-applicability. README must describe actual, validated commands.
+- Record evidence for every gate; document exceptions in Complexity Tracking with
+  owner decision before dependent implementation. Recheck after design.
 
 ## Project Structure
 
@@ -67,10 +79,10 @@ specs/[###-feature]/
 ```text
 # [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
 src/
-├── models/
-├── services/
-├── cli/
-└── lib/
+├── domain/
+├── application/
+├── infrastructure/
+└── presentation/
 
 tests/
 ├── contract/
@@ -80,9 +92,10 @@ tests/
 # [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
 backend/
 ├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
+│   ├── domain/
+│   ├── application/
+│   ├── infrastructure/
+│   └── presentation/
 └── tests/
 
 frontend/

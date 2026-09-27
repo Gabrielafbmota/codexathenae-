@@ -98,6 +98,16 @@
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
+### Constitution Requirements *(mandatory)*
+
+- Identify the PRD delivery stage and explicitly exclude future-stage behavior.
+- Define acceptance for authorization, unambiguous selection, preservation of
+  missing/personal data and idempotency wherever the feature touches those flows.
+- Specify automated tests for new behavior and failure cases proportional to risk.
+- List documentation affected by this feature, including the root README; update
+  it in the same delivery or explain why an area is unaffected.
+- Configuration examples must exclude real credentials and personal data.
+
 ### Key Entities *(include if feature involves data)*
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]

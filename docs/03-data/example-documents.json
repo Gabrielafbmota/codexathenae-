@@ -1,0 +1,22 @@
+{
+  "work_imported_read": {
+    "_id": "work-example-1",
+    "title": "Exemplo fictício",
+    "authors": ["Autora Exemplo"],
+    "normalizedTitle": "exemplo ficticio",
+    "normalizedAuthors": ["autora exemplo"],
+    "rawTags": ["genero_ficcao"],
+    "readEvidence": {"importedRead": true, "manualRead": false},
+    "fieldSources": {"title": "storygraph_csv", "authors": "storygraph_csv"},
+    "schemaVersion": 1
+  },
+  "optional_owned_edition": {
+    "_id": "edition-example-1",
+    "workId": "work-example-1",
+    "publisher": "Editora Exemplo",
+    "publicationYear": 2021,
+    "format": "fisico",
+    "owned": true,
+    "schemaVersion": 1
+  }
+}
